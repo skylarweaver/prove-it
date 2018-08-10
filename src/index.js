@@ -42,7 +42,7 @@ ReactDOM.render(
   <DrizzleProvider options={options}>
     <Provider store={store}>
       <BrowserRouter>
-        <AuthComponent/>
+        <Home/>
       </BrowserRouter>
     </Provider>
   </DrizzleProvider>,
