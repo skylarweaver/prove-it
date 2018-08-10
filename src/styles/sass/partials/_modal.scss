@@ -1,0 +1,24 @@
+.modal-page {
+  display: block;
+  .modal-area {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    .title-area {
+      height: 7.0rem;
+      border-bottom: 0.6rem solid #EEEEEE;
+    }
+    .modal-select {
+      margin-top: 3.0rem;
+      height: 6.0rem;
+      border-radius: 9.5rem;
+      padding: 0 3.0rem;
+      border: none;
+      -webkit-appearance: none;
+    }
+    .modal-button {
+      float: right;
+      margin-top: 6.0rem;
+    }
+  }
+}

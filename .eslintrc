@@ -1,0 +1,39 @@
+// eslint customization in addition to extending react-app which is declared in package.json
+{
+  parser: "babel-eslint",
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    // was getting error, not familiar w/ prop types yet. If you can remove this and know how to declare properly, im down to learn.
+    "react/prop-types": [2, { ignore: ['history', 'match', 'params', 'actions', 'location', 'location.state'] }],
+    // another error I got at some point, can't remember the specifics for this one
+    "no-shadow": [0, {"builtinGlobals": false, "hoist": "functions", "allow": []}],
+    // Max line length
+    "max-len": [1, 180, 2, {ignoreComments: true}],
+    // Allow console logginf
+    "no-console": 0,
+    // Allow require to be within if statements/loops
+    "global-require": 0,
+    // Render often does not use "this" by best practice, so don't throw this warning every time it doesn't use this. 
+    "class-methods-use-this": 0,
+    "linebreak-style": 0,
+    // Allow arrow functions to have brackets
+    "arrow-body-style": 0,
+    // Warn for unused variables
+    "no-unused-vars": 1,
+    // This requires adding a return statement for every arrow function which convolutes the code and obfuscates logic IMO
+    "arrow-parens": 0,
+    // Should keep objects as props as single line in react presentational components
+    object-curly-newline: 0,
+    // Notifications endpiont returns _id as attribute and need to dangle
+    no-underscore-dangle: 0,
+  },
+  "env": {
+      "browser": true,
+      "node": true,
+      "amd" : true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:import/warnings", "airbnb-base"]
+}

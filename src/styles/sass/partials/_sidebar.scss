@@ -1,0 +1,71 @@
+//Sidebar
+.main-sidebar {
+  // .logo-area {
+  //   height: 19.0rem;
+  //   .logo-bg {
+  //     height: 100%;
+  //   }
+  //   .cc-logo {
+  //     position: absolute;
+  //     top: 50%; left: 50%;
+  //     transform: translate(-50%,-50%);
+  //   }
+  // }
+  .logo-area {
+    height: 6.0rem;
+    display: table;
+    .logo-div {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+  .sidebar-role {
+    height: 13.0rem;
+    display: table;
+    border-top: 1px solid rgba(252,252,252,0.4);
+    border-bottom: 1px solid rgba(252,252,252,0.4);
+    .user-info {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+  .sidebar-nav {
+    .navigation {
+      height: 6.0rem;
+      display: block;
+      border-bottom: 1px solid rgba(252,252,252,0.4);
+      a {
+        padding: 2.3rem;
+        display: block;
+        color: $white;
+        &:hover, &--active {
+          text-decoration: none;
+        }
+      }
+      &:hover, &--active {
+        @extend .navigation;
+        background-color: $active;
+      }
+      &--active {
+        box-shadow: 2.0rem 0 3.0rem -1.0rem rgba(166,25,46,0.3);
+      }
+      &--buttonBadge{
+        // this styling is kidna crap but just putting it here for now
+        position: absolute;
+        background-color: $white;
+        color: $active;
+        font-size: 15px;
+        margin: 15px;
+        // right: 145px;
+        // top: 405px;
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+    }
+  }
+}

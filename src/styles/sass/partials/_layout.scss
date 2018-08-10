@@ -1,0 +1,95 @@
+#root {
+  min-height: 100%;
+}
+
+.main-sidebar {
+  position: fixed;
+  height: 100%;
+}
+
+.cc-background {
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+
+.main-content-container {
+  .search-results, .search-details {
+    margin: 5.6rem 0;
+    padding-left: 6.0rem;
+    padding-right: 5.5rem;
+  }
+}
+
+.page-title {
+  margin-bottom: 1.9rem;
+}
+
+.page-subtitle {
+  margin-bottom: 2.8rem;
+}
+
+.search-container {
+  padding-top: 17.8rem;
+  padding-left: 6.0rem;
+  padding-right: 5.5rem;
+}
+
+.search-box {
+  height: 19.0rem;
+  border-radius: 9.5rem;
+  &-searchResults{
+    @extend .search-box;
+    border-radius: 0;
+  }
+}
+
+.search.input-large {
+  background: none;
+  padding: 0;
+  margin: 6.35rem 0rem 6.35rem 6.0rem;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+.search-results {
+  h1 {
+    border-bottom: 0.6rem solid #EEEEEE;
+    height: 7.0rem;
+  }
+}
+
+.nav-tabs {
+  border: none;
+  box-shadow: inset 0px -0.6rem 0 0 #EEEEEE;
+  margin-bottom: 3.0rem;
+  .nav-item {
+    margin: 0;
+    .nav-link {
+      padding-top: 0;
+      border: none;
+      height: 4.3rem;
+      color: $darker;
+      border-bottom: 0.6rem solid #EEEEEE;
+      &:hover {
+        color: $active;
+      }
+      &.active {
+        color: $active;
+        border-bottom: 0.6rem solid $active;
+      }
+    }
+  }
+}
+
+.notification-container {
+  padding: 5.6rem 6.0rem;
+  .notification-table {
+    padding-top: 3.0rem;
+  }
+}
+
+.loadingIndicator{
+  margin-top: 40%;
+}
