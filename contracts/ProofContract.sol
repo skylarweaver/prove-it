@@ -1,8 +1,9 @@
 pragma solidity ^0.4.23;
 
-import "./Ownable.sol";
+// Destructible also import Ownable contract from Zeppelin so can use Ownable functions as well
+import "openzeppelin-solidity/contracts/lifecycle/Destructible.sol";
 
-contract ProofContract is Ownable {
+contract ProofContract is Destructible {
   // Constructor
   // function Amsterdam(uint[] _primes) public {
   //   primes = _primes;
@@ -20,8 +21,8 @@ contract ProofContract is Ownable {
   }
 
   // State Variables
-  mapping (uint => Proof) public Proofs;
-  uint proofCounter;
+  mapping (uint => Proof) public proofs;
+  uint public proofCounter = 0;
 
   // Event declaration
   event EvtProofAdded(
@@ -31,39 +32,43 @@ contract ProofContract is Ownable {
     string _title
   );
 
-  // Function declarataio
+  // Function declaration
 
-  // Add a peice of proof to the blockchain
-  function submitProof(string _ipfs, string _title, string _description, ProofType _proofType) public {
-  proofCounter++;
-
-  // Adding proof to Proofs mapping
-  Proofs[proofCounter] = Proof(
-     proofCounter,
-     msg.sender,
-     _ipfs,
-     _title,
-     _description,
-     _proofType
-     );
-
+  // Add a piece of proof to the blockchain
+  function submitProof(string _ipfs, string _title, string _description, uint _proofType) public {
+    ProofType enumProofType = ProofType(_proofType);
+    // Adding proof to proofs mapping
+    proofs[proofCounter] = Proof(
+      proofCounter,
+      msg.sender,
+      _ipfs,
+      _title,
+      _description,
+      enumProofType
+    );
     emit EvtProofAdded(msg.sender, proofCounter, _ipfs, _title);
+
+    proofCounter++; 
   }
 
   // Getter functions
-  function getIPFS(uint _id) constant public returns (string x) {
-      return Proofs[_id].ipfs;
+  function getIPFS(uint _id) public view returns (string x) {
+    return proofs[_id].ipfs;
   }
 
   function getTotalProofs() public view returns (uint x){
-      return proofCounter;
+    return proofCounter;
   }
 
-  function getDescription(uint _id) constant public returns (string x) {
-    return Proofs[_id].description;
+  function getOwner(uint _id) public view returns (address x) {
+    return proofs[_id].owner;
   }
 
-  function getTitle(uint _id) constant public returns (string x) {
-      return Proofs[_id].title;
+  function getDescription(uint _id) public view returns (string x) {
+    return proofs[_id].description;
+  }
+
+  function getTitle(uint _id) public view returns (string x) {
+    return proofs[_id].title;
   }
 }

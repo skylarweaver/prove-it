@@ -1,6 +1,6 @@
 {
-  "name": "front-end-bscp",
-  "version": "0.1.0",
+  "name": "prove-it",
+  "version": "0.0.1-1",
   "private": true,
   "dependencies": {
     "autoprefixer": "7.1.6",
@@ -31,6 +31,7 @@
     "moment-timezone": "^0.5.14",
     "momentjs": "^1.0.0",
     "object-assign": "4.1.1",
+    "openzeppelin-solidity": "^1.12.0",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
     "promise": "8.0.1",
@@ -60,6 +61,7 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
+    "lint": "solium -d ./contracts/",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
@@ -112,8 +114,7 @@
     "eslint-config-airbnb": "^16.1.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-react": "^7.4.0",
-    "node-sass": "^4.8.3",
-    "sass-loader": "^7.0.1"
-  },
-  "proxy": "http://13.90.129.248:3111"
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0"
+  }
 }
