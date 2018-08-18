@@ -1,0 +1,26 @@
+.header .header-navbar{
+  padding-right: 20px;
+  padding-left: 20px;
+  color: white;
+  margin-bottom: 0px;
+
+  .navbar-brand, .nav-link{
+    &:hover{
+      color: lightgrey;
+    }
+  }
+
+  &-text{
+    font-size: 16px;
+    margin-right: 15px;
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+
+    &-status, &-account{
+      font-size: 16px;
+      color: lightgrey;
+      font-weight: 300;
+    }
+  }
+}

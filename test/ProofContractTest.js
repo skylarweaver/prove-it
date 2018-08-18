@@ -3,13 +3,13 @@
 // app.submitProof("IPFS Hash", "Proof Title", "Proof Decription", 0);
 // `var productEvent = app.addedProductEvent({}, {fromBlock: 0,toBlock: 'latest'}).watch(function(error, event) {console.log(event);})`
 
-
 var ProofContract = artifacts.require("./ProofContract.sol");
 
 contract('ProofContract', function(accounts) {
 
     it("Can be deployed.", async () => {
         let proofContractInstance = await ProofContract.deployed();
+        // Can also do something like this: assert.equal(web3.eth.getCode(proofContractInstance.address), "0x0", "Proof contract has been destroyed.");
         return assert.notEqual(proofContractInstance, undefined, "Proof contract has been deployed.");
     });
 
@@ -30,26 +30,16 @@ contract('ProofContract', function(accounts) {
         let proofContractInstance = await ProofContract.deployed();
         try {
             await proofContractInstance.destroy({from: accounts[1]}); // If this does not throw an error, there is a problem
-            return assert.isTrue(false, "Proof contract has been destroyed by non-owner.");
         } catch(error) {
+            // console.log('This is the error returned by trying to destroy a contract as a non-owner: ', error);
             return assert.isTrue(true, "Proof contract has not been destroyed.");
         }
+        return assert.isTrue(false, "Proof contract has been destroyed by non-owner.");
     });
 
     it("Can be destroyed by the owner.", async () => {
         let proofContractInstance = await ProofContract.deployed();
         await proofContractInstance.destroy();
-        // let proofContractInstanceAfterDestruction = await ProofContract.deployed();
-        // use proofContractInstance and get contract address. Then see if there is a contract at that address. Google that
-        return assert.equal(proofContractInstanceAfterDestruction, undefined, "Proof contract has been destroyed.");
+        return assert.equal(web3.eth.getCode(proofContractInstance.address), "0x0", "Proof contract has been destroyed.");
     });
-
-    // it("Investigator cannot exceute ApplicationRegistry:recordApplication.", async () => {
-    //     return let proofContractInstanceawait  = ProofContract.deployed();
-    //     return proofContractInstance.verify(2, "ApplicationRegistry:recordApplication");
-    //     })
-    //     .then(function(verifyResult) {
-    //     assert.equal(verifyResult, false, "Verify returns false.");
-    //     });
-    // });
 });
