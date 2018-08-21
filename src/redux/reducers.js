@@ -2,18 +2,21 @@ import { combineReducers } from 'redux';
 import { sessionReducer } from 'redux-react-session';
 import { drizzleReducers } from 'drizzle';
 
-// const setLastSearchReducer = (state = [], action) => {
-//   switch (action.type) {
-//     case 'SET_LAST_SEARCH':
-//       return {
-//         ...state,
-//         ssnLastSearched: action.ssnLastSearched,
-//         queryStringLastSearched: action.queryStringLastSearched,
-//       };
-//     default:
-//       return state;
-//   }
-// };
+const INITIAL_STATE = {
+  isSubmitProofDialogOpen: false,
+};
+
+const submitProofReducer = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    case 'SET_SUBMIT_PROOF_DIALOG_OPEN':
+      return {
+        ...state,
+        isSubmitProofDialogOpen: action.payload,
+      };
+    default:
+      return state;
+  }
+};
 
 // const setNotificationCountReducer = (state = [], action) => {
 //   switch (action.type) {
@@ -30,6 +33,7 @@ import { drizzleReducers } from 'drizzle';
 // Add the sessionReducer
 const rootReducer = combineReducers({
   session: sessionReducer,
+  submitProofReducer,
   ...drizzleReducers,
 });
 

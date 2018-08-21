@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';
 import { createStore, compose, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { sessionService } from 'redux-react-session';
+import thunkMiddleware from 'redux-thunk';
 import rootReducer from './redux/reducers';
 import sagas from './redux/sagas';
 // Import Global Styles
@@ -25,26 +26,26 @@ import ProofContract from './build/contracts/ProofContract.json';
 const sagaMiddleware = createSagaMiddleware();
 // Init Drizzle contracts
 const drizzleOptions = {
-  web3: {
-    block: false,
-    fallback: {
-      type: 'ws',
-      url: 'ws://127.0.0.1:754',
-    },
-  },
+  // web3: {
+  //   block: false,
+  //   fallback: {
+  //     type: 'ws',
+  //     url: 'ws://127.0.0.1:754',
+  //   },
+  // },
   contracts: [
     ProofContract,
   ],
-  events: {},
+  // events: {},
 };
 const initialState = {
   contracts: generateContractsInitialState(drizzleOptions),
 };
 console.log(rootReducer);
-const store = createStore(rootReducer, initialState, compose(applyMiddleware(sagaMiddleware)));
+const store = createStore(rootReducer, initialState, compose(applyMiddleware(thunkMiddleware, sagaMiddleware)));
 sagaMiddleware.run(sagas);
 // Init the session service
-// sessionService.initSessionService(store);
+sessionService.initSessionService(store);
 
 ReactDOM.render(
   <DrizzleProvider options={drizzleOptions} store={store}>

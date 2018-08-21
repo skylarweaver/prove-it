@@ -4,14 +4,29 @@ import { Route, withRouter, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { drizzleConnect } from 'drizzle-react';
 import PropTypes from 'prop-types';
+// Import Matieral UI
+import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
 
 // Import Scenes
-import TabBar from '../../components/TabBar/TabBar';
-import Header from '../../components/Header/Header';
+import ProofListContainer from './ProofListContainer/ProofListContainer';
+import SubmitProofDialogContainer from './SubmitProofDialogContainer/SubmitProofDialogContainer';
 
 // Import Components
+import TabBar from '../../components/TabBar/TabBar';
+import Header from '../../components/Header/Header';
+import AddProofButton from '../../components/AddProofButton/AddProofButton';
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.handleAddProofClick = this.handleAddProofClick.bind(this);
+  }
+
+  handleAddProofClick() {
+    console.log('Clicked');
+  }
+
   render() {
     return (
       <div className="row h-100">
@@ -19,27 +34,23 @@ class Home extends Component {
         <Header/>
         <TabBar/>
         <h1>Prove It</h1>
+        <ProofListContainer/>
+        <AddProofButton/>
+        <SubmitProofDialogContainer/>
         </div>
       </div>
     );
   }
 }
 
-// Makes global state available in this component through props
-function mapStateToProps(state) {
-  console.log('State', state);
-  // const isAuthenticated = state.session.authenticated;
-  return {
-    // isAuthenticated,
-  };
-}
-
 Home.propTypes = {
-  // role: PropTypes.string.isRequired,
-  // agency: PropTypes.string.isRequired,
-  // notificationCount: PropTypes.number,
-  // ssnLastSearched: PropTypes.string,
-  // queryStringLastSearched: PropTypes.string,
+};
+
+// Makes global state available in this component through props
+const mapStateToProps = state => {
+  console.log('State: ', state);
+  return {
+  };
 };
 
 // Basically: pass redux's global state into this component as props

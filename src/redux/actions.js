@@ -1,28 +1,17 @@
 import { sessionService } from 'redux-react-session';
 
-/*
- * action types
- */
-
-export const SET_LAST_SEARCH = 'SET_LAST_SEARCH';
-export const SET_NOTIFICATION_COUNT = 'SET_NOTIFICATION_COUNT';
+import {
+  SET_SUBMIT_PROOF_DIALOG_OPEN,
+} from './types';
 
 /*
  * action creators
  */
 
-export function setLastSearch(ssnLastSearched, queryStringLastSearched) {
+export function setSubmitProofDialogOpen(isOpen) {
   return {
-    type: SET_LAST_SEARCH,
-    ssnLastSearched,
-    queryStringLastSearched,
-  };
-}
-
-export function setNotificationCount(notificationCount) {
-  return {
-    type: SET_NOTIFICATION_COUNT,
-    notificationCount,
+    type: SET_SUBMIT_PROOF_DIALOG_OPEN,
+    payload: isOpen,
   };
 }
 
