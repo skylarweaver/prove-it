@@ -1,7 +1,8 @@
 Prove It! — Ethereum dApp
 ===============
+------
 
-## What is Prove It
+What is Prove It
 ------
 Prove It is an Ethereum-based Proof of Existence distributed application.
 
@@ -9,7 +10,7 @@ Using Prove It, you can take a photo of something (virtual proof that it exists)
 
 **Note:** To truly prove the existence of something, it would be prudent to include the current block number and timestamp somewhere inside of your Proof of Existence photo (as simple as being written down on a peice of paper in your photo). You may ask, "but why isn't that included or superimposed over the photo on upload?" While technically, that is feasible, it would be less secure as it would be more forgeable than using your own note with your own unique characteristics such as size, handwriting, location in photo, etc.
 
-## How to set it up
+How to set it up
 ------
 ### Requirements
 * Node.js
@@ -39,7 +40,7 @@ Using Prove It, you can take a photo of something (virtual proof that it exists)
 * Import the first Truffle develop test account by using this private key: c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3
 * Import the second Truffle develop test account by using this private key: ae6ae8e5ccbfb04590405997ee2d52d2b330726137b875053c36d94e974d162f
 
-## More About Prove It
+More About Prove It
 ------
 ### Testing
 My smart contracts include 5 tests for the following:
@@ -67,4 +68,4 @@ Because there is inherently not transfer of funds (other than simple gas fees) i
 
 ## Credits
 
-**Create by Skylar Weaver**
+**Created by Skylar Weaver**
