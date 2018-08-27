@@ -18,22 +18,23 @@ const submitProofReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-// const setNotificationCountReducer = (state = [], action) => {
-//   switch (action.type) {
-//     case 'SET_NOTIFICATION_COUNT':
-//       return {
-//         ...state,
-//         notificationCount: action.notificationCount,
-//       };
-//     default:
-//       return state;
-//   }
-// };
+const setTabReducer = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    case 'SET_SELECTED_TAB':
+      return {
+        ...state,
+        selectedTab: action.payload,
+      };
+    default:
+      return state;
+  }
+};
 
 // Add the sessionReducer
 const rootReducer = combineReducers({
   session: sessionReducer,
   submitProofReducer,
+  setTabReducer,
   ...drizzleReducers,
 });
 

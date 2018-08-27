@@ -2,6 +2,7 @@ import { sessionService } from 'redux-react-session';
 
 import {
   SET_SUBMIT_PROOF_DIALOG_OPEN,
+  SET_SELECTED_TAB,
 } from './types';
 
 /*
@@ -12,6 +13,13 @@ export function setSubmitProofDialogOpen(isOpen) {
   return {
     type: SET_SUBMIT_PROOF_DIALOG_OPEN,
     payload: isOpen,
+  };
+}
+
+export function setSelectedTab(selectedTab) {
+  return {
+    type: SET_SELECTED_TAB,
+    payload: selectedTab,
   };
 }
 

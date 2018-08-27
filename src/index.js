@@ -7,7 +7,6 @@ import { generateContractsInitialState } from 'drizzle';
 import { DrizzleProvider } from 'drizzle-react';
 import { LoadingContainer } from 'drizzle-react-components';
 // Import Redux
-import { Provider } from 'react-redux';
 import { createStore, compose, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { sessionService } from 'redux-react-session';
@@ -36,12 +35,19 @@ const drizzleOptions = {
   contracts: [
     ProofContract,
   ],
-  // events: {},
+  events: {
+    ProofContract: {
+      eventName: 'EvtProofAdded',
+      eventOptions: {
+        fromBlock: 0, // ideally contract creation block, but listen for events from block '0' to 'latest'
+      },
+    },
+  },
+  polls: {},
 };
 const initialState = {
   contracts: generateContractsInitialState(drizzleOptions),
 };
-console.log(rootReducer);
 const store = createStore(rootReducer, initialState, compose(applyMiddleware(thunkMiddleware, sagaMiddleware)));
 sagaMiddleware.run(sagas);
 // Init the session service
@@ -49,9 +55,11 @@ sessionService.initSessionService(store);
 
 ReactDOM.render(
   <DrizzleProvider options={drizzleOptions} store={store}>
-        <BrowserRouter>
+    <LoadingContainer>
+      <BrowserRouter>
         <Home/>
-        </BrowserRouter>
+      </BrowserRouter>
+    </LoadingContainer>
   </DrizzleProvider>,
   document.getElementById('root'),
 );

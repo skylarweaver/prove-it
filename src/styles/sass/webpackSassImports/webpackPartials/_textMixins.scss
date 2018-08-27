@@ -16,21 +16,21 @@ $font-weight-medium:    500;
 $font-weight-semibold:  600;
 $font-weight-bold:      700;
 
-$font-size-display:     4.2rem;
-$font-size-headline:    3.6rem;
-$font-size-title:       2.4rem;
-$font-size-subheading:  1.8rem;    
-$font-size-body:        1.6rem;
-$font-size-nav:         1.4rem;
-$font-size-caption:     1.2rem;
+$font-size-display:     2.2rem;
+$font-size-headline:    1.8rem;
+$font-size-title:       1.6rem;
+$font-size-subheading:  1.4rem;    
+$font-size-body:        1.0rem;
+$font-size-nav:         1.0rem;
+$font-size-caption:     1.0rem;
 
-$line-height-display:     4.2rem;
-$line-height-headline:    3.6rem;
-$line-height-title:       3.6rem;
-$line-height-subheading:  2.4rem;    
-$line-height-body:        2.1rem;
-$line-height-nav:         1.4rem;
-$line-height-caption:     2.4rem;
+$line-height-display:     2.2rem;
+$line-height-headline:    1.8rem;
+$line-height-title:       1.0rem;
+$line-height-subheading:  1.4rem;    
+$line-height-body:        1.4rem;
+$line-height-nav:         0.0rem;
+$line-height-caption:     1.0rem;
 
 //SSN earch Bar 
 @mixin display(
@@ -45,7 +45,7 @@ $line-height-caption:     2.4rem;
 
 //Page Title
 @mixin headline(
-  $font: $font-family-serif,
+  $font: $font-family-sans-serif,
   $align: $text-align-left,
   $transform: $text-transform-none,
   $weight: $font-weight-bold,

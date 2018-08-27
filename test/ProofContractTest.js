@@ -1,6 +1,6 @@
 // For manual testing:
 // ProofContract.deployed().then((instance) => app = instance)
-// app.submitProof("IPFS Hash", "Proof Title", "Proof Decription", 0);
+// app.submitProof("IPFS Hash", "Proof Title", "Proof Description", 0);
 // `var productEvent = app.addedProductEvent({}, {fromBlock: 0,toBlock: 'latest'}).watch(function(error, event) {console.log(event);})`
 
 var ProofContract = artifacts.require("./ProofContract.sol");
@@ -15,7 +15,7 @@ contract('ProofContract', function(accounts) {
 
     it("Can upload new piece of proof and update total proof count", async () => {
         let proofContractInstance = await ProofContract.deployed();
-        await proofContractInstance.submitProof("IPFS Hash", "Proof Title", "Proof Decription", 0);
+        await proofContractInstance.submitProof("IPFS Hash", "Proof Title", "Proof Description", 0);
         let totalProofs = await proofContractInstance.getTotalProofs.call();       
         return assert.equal(totalProofs, 1, "Public proofs mapping contains 1 proof.");
     });

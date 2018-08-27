@@ -2,6 +2,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { drizzleConnect } from 'drizzle-react';
+// Import Assets
+import redCircle from '../../assets/red-circle.png';
+import greenCircle from '../../assets/green-circle.png';
 
 // Import Services
 // import web3Service from '../../services/web3Service'
@@ -44,7 +47,7 @@ class Header extends Component {
   render() {
     return (
     <div className="header">
-        <nav className="navbar navbar-expand-md fixed-top navbar-dark bg-dark header-navbar">
+        <nav className="navbar navbar-expand-md fixed-top navbar-dark header-navbar">
           <a className="navbar-brand" href="/">Prove It</a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -60,11 +63,12 @@ class Header extends Component {
               //   </li>
               // </ul>
             }
-          <span className="header-navbar-text align-middle">
-            <h6 >Account: <span className="header-navbar-text-account">{this.props.accounts[0]}</span></h6>
+          <span className="header-navbar-text align-middle ml-auto">
+            <h4 className="white">Current Account: <span className="header-navbar-text-account">{this.props.accounts[0]}</span></h4>
           </span>
-          <span className="header-navbar-text align-middle">
-            <h6 >Web3 Status: <span className="header-navbar-text-status">{this.props.web3.status}</span></h6>
+          <span className="header-navbar-text align-middle d-flex">
+            <h4 className="pr-2 pt-2 white">Web3 Status:</h4>
+            { this.props.web3.status === 'initialized' ? <img className="statusCircle" src={greenCircle} width="20px" height="20px"/> : <img className="statusCircle" src={redCircle} width="20px" height="20px"/> }
           </span>
           </div>
         </nav>

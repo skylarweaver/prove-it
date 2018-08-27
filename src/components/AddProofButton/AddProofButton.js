@@ -1,7 +1,6 @@
 // Import React Modules
 import React, { Component } from 'react';
-import { Route, withRouter, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { drizzleConnect } from 'drizzle-react';
 import PropTypes from 'prop-types';
 // Import Matieral UI
@@ -28,7 +27,7 @@ class AddProofButton extends Component {
 
   render() {
     return (
-      <div >
+      <div className="submitProof-button">
         <Button variant="fab" color="primary" aria-label="Add" onClick={this.handleAddProofClick}>
           <AddIcon />
         </Button>

@@ -1,8 +1,11 @@
 // Import React Modules
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { drizzleConnect } from 'drizzle-react';
 import PropTypes from 'prop-types';
-
-// Import Styles
+// Import Redux
+import { bindActionCreators } from 'redux';
+import { setSelectedTab } from '../../../redux/actions';
 
 // Import Scenes/Components
 import Tab from './Tab/Tab';
@@ -40,7 +43,9 @@ class Tabs extends Component {
 
   // Once tab is clicked, this is called to set active tab to that tab
   setActiveTab(selectedTabId) {
+    console.log('SELECTED TAB', selectedTabId);
     this.setState({ selectedTabId });
+    this.props.actions.setSelectedTab(selectedTabId);
   }
 
   render() {
@@ -65,4 +70,21 @@ Tabs.propTypes = {
   tabs: PropTypes.array.isRequired,
 };
 
-export default Tabs;
+const mapStateToProps = state => {
+  return {
+    ProofContract: state.contracts.ProofContract,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators({
+      setSelectedTab,
+    }, dispatch),
+  };
+};
+
+// Basically: pass redux's global state into this component as props
+// Using withRouter due to this issue:
+// https://stackoverflow.com/questions/43895805/react-router-4-does-not-update-view-on-link-but-does-on-refresh
+export default withRouter(drizzleConnect(Tabs, mapStateToProps, mapDispatchToProps));
