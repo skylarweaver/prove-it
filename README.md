@@ -19,6 +19,7 @@ Using Prove It, you can take a photo of something (virtual proof that it exists)
 ### Web Installation
 * Run the following commands from the root directory
 * `npm install`
+* Optional: Run `npm run lint` which will lint the Solidty files using Solium
 
 ### Contract Deployment
 
