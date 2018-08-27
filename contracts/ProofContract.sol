@@ -1,13 +1,9 @@
 pragma solidity ^0.4.23;
 
-// Destructible also import Ownable contract from Zeppelin so can use Ownable functions as well
+// Destructible also imports Ownable contract from Zeppelin so can use Ownable functions as well
 import "openzeppelin-solidity/contracts/lifecycle/Destructible.sol";
 
 contract ProofContract is Destructible {
-  // Constructor
-  // function Amsterdam(uint[] _primes) public {
-  //   primes = _primes;
-  // }
 
   // Enums & Structs
   enum ProofType { picture, video }
@@ -48,6 +44,7 @@ contract ProofContract is Destructible {
     );
     emit EvtProofAdded(msg.sender, proofCounter, _ipfs, _title);
 
+    // Increment proof counter as it's used as proof ids for future proofs too
     proofCounter++; 
   }
 
