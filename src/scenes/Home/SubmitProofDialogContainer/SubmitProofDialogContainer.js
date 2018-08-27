@@ -44,12 +44,19 @@ class SubmitProofDialogContainer extends Component {
 
   async handleSubmit() {
     // Declare this transaction to be observed. We'll receive the stackId for reference.
-    const stackId = await this.contracts.ProofContract.methods.submitProof.cacheSend(this.state.fileIpfsHash, this.state.title, this.state.description, 0, { from: this.props.accounts[0] });
-    const proofCounter = this.contracts.ProofContract.methods.proofCounter.cacheCall();
+    const stackId = await this.contracts.ProofContract.methods.submitProof.cacheSend(
+      this.state.fileIpfsHash,
+      this.state.title,
+      this.state.description,
+      0,
+      { from: this.props.accounts[0] },
+    );
+    this.contracts.ProofContract.methods.proofCounter.cacheCall();
 
     // Use the dataKey to display the transaction status.
     if (this.props.transactionStack[stackId]) {
       const txHash = this.props.transactionStack[stackId];
+      console.log('Transaction Hash: ', txHash);
     }
     this.setState({ loadingSubmit: false });
     this.props.history.push('/your-proof');
@@ -133,7 +140,7 @@ class SubmitProofDialogContainer extends Component {
                     <li>Add a description</li>
                     <li>Press Upload to store it on IPFS and save its data on the blockchain</li>
                   </ol>
-                  Once the transaction is confirmed by Metamask, you will need to refresh the page manually, due to a currently open Metamask issue with web3 1.0.
+                  Once the transaction is confirmed by Metamask, you will need to refresh the page manually, due to a currently open Metamask issue with web3 1.0. Also ensure you are not behind any firewalls or proxies in order for the IPFS upload to work.
                   <br></br><br></br>
                 </DialogContentText>
                 <FileUploader captureFile={this.captureFile}/>

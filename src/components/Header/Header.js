@@ -49,7 +49,13 @@ class Header extends Component {
     <div className="header">
         <nav className="navbar navbar-expand-md fixed-top navbar-dark header-navbar">
           <a className="navbar-brand" href="/">Prove It</a>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <button className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarText"
+            aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarText">
@@ -68,7 +74,10 @@ class Header extends Component {
           </span>
           <span className="header-navbar-text align-middle d-flex">
             <h4 className="pr-2 pt-2 white">Web3 Status:</h4>
-            { this.props.web3.status === 'initialized' ? <img className="statusCircle" src={greenCircle} width="20px" height="20px"/> : <img className="statusCircle" src={redCircle} width="20px" height="20px"/> }
+            { this.props.web3.status === 'initialized' ?
+              <img className="statusCircle" src={greenCircle} width="20px" height="20px"/>
+              :
+              <img className="statusCircle" src={redCircle} width="20px" height="20px"/> }
           </span>
           </div>
         </nav>

@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
 import { drizzleConnect } from 'drizzle-react';
-import PropTypes from 'prop-types';
 
 // Import Scenes
 import ProofListContainer from './ProofListContainer/ProofListContainer';
@@ -42,17 +41,7 @@ class Home extends Component {
   }
 }
 
-Home.propTypes = {
-};
-
-// Makes global state available in this component through props
-const mapStateToProps = state => {
-  // console.log('State: ', state);
-  return {
-  };
-};
-
 // Basically: pass redux's global state into this component as props
 // Using withRouter due to this issue:
 // https://stackoverflow.com/questions/43895805/react-router-4-does-not-update-view-on-link-but-does-on-refresh
-export default withRouter(drizzleConnect(Home, mapStateToProps));
+export default withRouter(drizzleConnect(Home));
