@@ -67,4 +67,4 @@ Because there is inherently no transfer of funds (other than simple gas fees) in
 
 ## Credits
 
-**Created by Skylar Weaver — Software Developer @ Deloitte Digital**
+Created by **Skylar Weaver** — Software Developer @ Deloitte Digital
