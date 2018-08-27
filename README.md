@@ -50,22 +50,21 @@ My smart contracts include 5 tests for the following:
 * Ensure the contract can be destroyed safely by the contract owner
 
 ### Libraries
-In order to ensure maintainability and that this dApp is only using smart contract code that has been battle test and is secure, I decided to use as many OpenZeppelin libraries as possible. In this project, I only needed one import — Destrucible.sol. This library ensure that I am able to securely detroy this contract when necessary, but that it is not possible for anyone (non-owners) to destroy this project. You can view in my ProofContract.sol file that I am importing that library from OpenZeppelin.
+In order to ensure maintainability and that this dApp is only using smart contract code that has been battle tested and is secure, I decided to use as many OpenZeppelin libraries as possible. In this project, I only needed one import — Destrucible.sol. This library ensures that I am able to securely destroy this contract when necessary, but that it is not possible for anyone (non-owners) to destroy this project. You can view in my ProofContract.sol file that I am importing that library from OpenZeppelin.
 
 ### Design Patterns
-In this project, I chose the most straightforward Monolithic design pattern which included simple contract-client interaction. The dApp consists of one smart contract, which imports one well-tested, trusted library. This contract is then deployed to the blockchain, where my front-end client side can then interact with it through use of a third party provider (i.e. Metamask). There is no back-end server to this project, as I wanted to keep the application as decentralized as possible, and with only a smart contract, some tests, and client, that can be achieved. Some other commons design decisions I made during development were: 
+In this project, I chose the most straightforward Monolithic design pattern which included simple contract-client interaction. The dApp consists of one smart contract, which imports one well-tested, trusted library. This contract is then deployed to the blockchain, where my front-end client can then interact with it through use of a third party provider (i.e. Metamask). There is no back-end server to this project, as I wanted to keep the application as decentralized as possible, and with only a smart contract, some tests, and client, that can be achieved. Some other conscious design decisions I made during development were: 
 
 1. **Fail early and fail loud** by using `revert` instead of silent if statements
 2. **Restricting Access** to only those that should have access to certain functions within my smart contract
 3. Making the contract **Mortal** by use of the destructible and ownable library imports
 
 ### Avoiding Common Attacks
-Because there is inherently not transfer of funds (other than simple gas fees) involved in this application, there were fewer security attacks to be avoided. One security attack in which I did prepare for was a Contract Destruction attack, wherein an attacker attempts to destroy one's contract which they do not own. By ensuring that my contract is 1) Ownable and 2) Destructible, I've ensure that only I (the owner) can own and destroy my contract; therefore, evading one of the largest common attacks on my non-value-transferring dApp. Other attacks that have been taken into consideration in my smart contract development were:
+Because there is inherently no transfer of funds (other than simple gas fees) involved in this application, there were fewer security attacks to be avoided. One security attack in which I did prepare for was a Contract Destruction attack, wherein an attacker attempts to destroy one's contract which they do not own. By ensuring that my contract is 1) Ownable and 2) Destructible, I've ensure that only I (the owner) can own and destroy my contract; therefore, evading one of the largest common attacks on my non-value-transferring dApp. Other attacks that have been taken into consideration in my smart contract development were:
 
 1. I avoided all use of **Timestamp Dependence** in order to ensure that function actions executed as I expected them to.
 2. While I do have a proofCounter, the counter only increments by 1, so to prevent **Integer Overflow** attacks
 
 ## Credits
-------
 
-**Created by Skylar Weaver**
+**Created by Skylar Weaver — Software Developer @ Deloitte Digital**
