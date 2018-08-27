@@ -5,7 +5,9 @@ Prove It! — Ethereum dApp
 ------
 Prove It is an Ethereum-based Proof of Existence distributed application.
 
-Using Prove It, you can take a photo of something (virtual proof that it exists) and upload it via the dApp. The upload is then stored on IPFS (Inter-Planetary File System — a decentralized file storage network) and its IPFS reference hash and detail information is stored immutably on the blockchain. To truly prove the existence of something, it would be prudent to include the current block number and timestamp somewhere inside of your Proof of Existence photo (as simple as being written down on a peice of paper in your photo). You may ask, "but why isn't that included or superimposed over the photo on upload?" While technically, that is feasible, it would be less secure as it would be more forgeable than using your own note with your own unique characteristics such as size, handwriting, location in photo, etc.
+Using Prove It, you can take a photo of something (virtual proof that it exists) and upload it via the dApp React-based UI. The upload is then stored on IPFS (Inter-Planetary File System — a decentralized file storage network) and its IPFS reference hash and detail information is stored immutably on the blockchain. Using the webapp, users can view all of their personal proof uploads in one tab and everyone else's proof uploads in another tab. The user also has the ability to view a specific piece of proof uploaded, as each proof uploaded has its own reference url within the dApp. 
+
+**Note:** To truly prove the existence of something, it would be prudent to include the current block number and timestamp somewhere inside of your Proof of Existence photo (as simple as being written down on a peice of paper in your photo). You may ask, "but why isn't that included or superimposed over the photo on upload?" While technically, that is feasible, it would be less secure as it would be more forgeable than using your own note with your own unique characteristics such as size, handwriting, location in photo, etc.
 
 ## How to set it up
 ------
@@ -62,3 +64,7 @@ Because there is inherently not transfer of funds (other than simple gas fees) i
 
 1. I avoided all use of **Timestamp Dependence** in order to ensure that function actions executed as I expected them to.
 2. While I do have a proofCounter, the counter only increments by 1, so to prevent **Integer Overflow** attacks
+
+## Credits
+
+**Create by Skylar Weaver**
