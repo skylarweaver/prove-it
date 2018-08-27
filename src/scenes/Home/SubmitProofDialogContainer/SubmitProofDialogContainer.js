@@ -133,6 +133,8 @@ class SubmitProofDialogContainer extends Component {
                     <li>Add a description</li>
                     <li>Press Upload to store it on IPFS and save its data on the blockchain</li>
                   </ol>
+                  Once the transaction is confirmed by Metamask, you will need to refresh the page manually, due to a currently open Metamask issue with web3 1.0.
+                  <br></br><br></br>
                 </DialogContentText>
                 <FileUploader captureFile={this.captureFile}/>
                 <TextField

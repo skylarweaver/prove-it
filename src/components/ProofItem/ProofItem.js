@@ -19,8 +19,12 @@ class ProofItem extends Component {
     };
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevProps.ProofContract.initialized === false && this.props.ProofContract.initialized === true) {
+      this.getProofIpfsFromProofId();
+      this.getProofCounter();
+    }
+    if (this.props.ProofContract.initialized === true && prevState.proofIpfs === '') {
       this.getProofIpfsFromProofId();
       this.getProofCounter();
     }
@@ -48,7 +52,7 @@ class ProofItem extends Component {
   render() {
     const renderLinkIcon = () => {
       return <Link to={`/proof/${this.state.proofId}`} target="_blank">
-        <img className="mr-3" src={linkIcon} width="30"/>
+        <img className="mr-3" src={linkIcon} width="30" alt="Direct link to this piece of proof" title="Direct link to this piece of proof"/>
       </Link>;
     };
     return (
