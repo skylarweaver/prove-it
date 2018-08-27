@@ -1,4 +1,4 @@
-#Prove It! — Ethereum dApp
+Prove It! — Ethereum dApp
 ===============
 
 ## What is Prove It
@@ -29,7 +29,7 @@ Using Prove It, you can take a photo of something (virtual proof that it exists)
 
 ### Run the Web App
 * `npm install` - Run in root directory to install all dependencies
-* ln -sf /build/ /src/build/ - create a sym link inside of the src folder so web app can access truffle contract ABIs
+* `ln -sf ~/full-path-to-truffle-build-folder/build/ /src/build/` - Create a sym link inside of the src folder so webapp can access truffle contract ABIs. Alternatively copy build folder into /src folder.
 * `npm run start` - To run the application for local development, includes live reload
 
 ### Import Test Accounts into Metamask
