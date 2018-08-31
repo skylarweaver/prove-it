@@ -29,8 +29,8 @@ Using Prove It, you can take a photo of something (virtual proof that it exists)
 * Inside truffle develop console, `deploy`
 
 ### Run the Web App
-* `npm install` - Run in root directory to install all dependencies
-* `ln -sf ~/full-path-to-truffle-build-folder/build/ /src/build/` - Create a sym link inside of the src folder so webapp can access truffle contract ABIs. My command was: `ln -sf ~/dev/blockchain/consensys-final-project/build/ src/build`. Alternatively copy build folder into /src folder.
+Perform the following commands in a new terminal tab
+* `ln -sf ~/full-path-to-truffle-build-folder/build src/` - Create a sym link inside of the src folder so webapp can access truffle contract ABIs. My command was: `ln -sf ~/dev/blockchain/consensys-final-project/build src/`. Alternatively copy Truffle build folder into /src folder.
 * `npm run start` - To run the application for local development, includes live reload
 
 ### Import Test Accounts into Metamask
