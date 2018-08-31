@@ -32,13 +32,17 @@ Using Prove It, you can take a photo of something (virtual proof that it exists)
 Perform the following commands in a new terminal tab
 * `ln -sf ~/full-path-to-truffle-build-folder/build src/` - Create a sym link inside of the src folder so webapp can access truffle contract ABIs. My command was: `ln -sf ~/dev/blockchain/consensys-final-project/build src/`. Alternatively copy Truffle build folder into /src folder.
 * `npm run start` - To run the application for local development, includes live reload
+* You should be prompted with a warning saying: "We can't find any Ethereum accounts! Please check and make sure Metamask or you browser are pointed at the correct network and your account is unlocked."
 
 ### Import Test Accounts into Metamask
 * Install Metamask for chome: https://metamask.io/
-* Once installed, go to settings by clicking your colorful logo in the top right
+* Once installed, connect to your local test network at http://127.0.0.1:9545/ (if using Truffle develop)
+* Add a new network if that one is not shown by default.
+* Then go to settings by clicking your colorful logo in the top right
 * Select `Import Account`
 * Import the first Truffle develop test account by using this private key: c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3
 * Import the second Truffle develop test account by using this private key: ae6ae8e5ccbfb04590405997ee2d52d2b330726137b875053c36d94e974d162f
+* Go back to the dApp and refresh the page
 
 ## More About Prove It
 ------

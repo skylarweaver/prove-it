@@ -63,7 +63,7 @@ class ProofListContainer extends Component {
     // Ensure we don't get caught in infinite loop, so only run get proof functions if proof array is less than the proof counter (based on the selected tab)
     if (this.props.ProofContract.initialized === true &&
         prevProps.ProofContract.initialized === true &&
-        (this.state.proofs.length < (this.state.proofsLengthBasedOnTab ? this.state.proofsLengthBasedOnTab : this.state.proofCounter))
+        (this.state.proofs.length < (this.state.proofsLengthBasedOnTab !== undefined ? this.state.proofsLengthBasedOnTab : this.state.proofCounter))
     ) {
       console.log('HI');
       // Get number of proofs so that you can loop through and get each product details
